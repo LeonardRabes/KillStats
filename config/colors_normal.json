@@ -1,0 +1,36 @@
+{
+  "colors": [
+    {
+      "color": "red",
+      "hex": "#cc0000"
+    },
+	{
+      "color": "blue",
+      "hex": "#0033cc"
+    },
+	{
+      "color": "orange",
+      "hex": "#ff6600"
+    },
+	{
+      "color": "green",
+      "hex": "#00cc00"
+    },
+	{
+      "color": "arctic",
+      "hex": "#00ffcc"
+    },
+	{
+      "color": "yellow",
+      "hex": "#ffff00"
+    },
+	{
+      "color": "purple",
+      "hex": "#6600cc"
+    },
+	{
+      "color": "pink",
+      "hex": "#ff66ff"
+    },
+  ]
+}
