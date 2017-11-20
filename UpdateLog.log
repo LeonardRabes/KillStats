@@ -1,1 +1,7 @@
-Hi
+-----------Update Log-----------
+Version 0.1
+
+-Added an update log window (as you can see)
+-Restricted decimal place to 0.00
+-Improved updater and added exception handling
+-Some minor bug fixes
