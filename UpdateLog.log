@@ -1,4 +1,15 @@
 -----------Update Log-----------
+
+Version 0.3
+
+-Added preset system
+  *Add Presets
+  *Remove Presets
+  *Select Presets
+  *Edit Presets
+-Attached Settings to Main Windows
+-Bug Fixes
+
 Version 0.2
 
 -Complete overhaul of the tracking system
