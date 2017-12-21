@@ -1,14 +1,19 @@
 -----------Update Log-----------
 
+Version 0.3.1
+
+-Added loading icons
+-Minor bug fix
+
 Version 0.3
 
 -Added preset system
-  *Add Presets
-  *Remove Presets
-  *Select Presets
-  *Edit Presets
+  *Add presets
+  *Remove presets
+  *Select presets
+  *Edit presets
 -Attached Settings to Main Windows
--Bug Fixes
+-Bug fixes
 
 Version 0.2
 
