@@ -1,8 +1,14 @@
 -----------Update Log-----------
+
+Version 0.4.1
+
+-Improved design and gui
+-Connected save files to steamID
+
 Version 0.4.0
 
 -Long term tracking and diagram view
--new file type: .kss (KillStats Save)
+-New file type: .kss (KillStats Save)
 -Bug fixes and network exception handling
 
 Version 0.3.2
