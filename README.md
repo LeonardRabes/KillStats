@@ -3,7 +3,7 @@ KillStats is a Team Fortress 2 tool to get additional statistics to your strange
 
 ### First Startup:
 When you start the application for the first time it will look like this:
-<img src="https://i.imgur.com/i3MZYHQ.png" width="1067px" height="497px">
+<img src="https://i.imgur.com/i3MZYHQ.png" width="1050px" height="410px">
 
 #### You need to add your steam profile URL... 
 * visit your steam profile page and coby the url from your searchbar
@@ -15,5 +15,6 @@ When you start the application for the first time it will look like this:
 After you entered both you can click save and the programm will restart.
 
 ### Select Items:
+When KillStats is restarted it will present you a list of your strange items, that are useable for tracking. Click on a item you want to track and push the select button. As you can see it added this particular item to the tracking list. If you cant find your wanted weapon/cosmetic use the search bar in the left lower corner. 
 
 
