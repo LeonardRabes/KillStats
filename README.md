@@ -16,6 +16,9 @@ When you start the application for the first time it will look like this:
 After you entered both you can click save and the programm will restart.
 
 ### Select Items:
-When KillStats is restarted it will present you a list of your strange items, that are useable for tracking. Click on a item you want to track and push the select button. As you can see it added this particular item to the tracking list. If you cant find your wanted weapon/cosmetic use the search bar in the left lower corner. 
+When KillStats is restarted it will present you a list of your strange items, that are useable for tracking. Click on a item you want to track and push the select button. As you can see it added this particular item to the tracking list. If you cant find your wanted weapon/cosmetic use the search bar in the left lower corner. If you have strange parts on your item you can select them by clicking on the dropdown list.
+
+### Creating Presets:
+KillStats enables you to create item presets so you dont have to select and remove items every time you play with different weapons/cosmetics. You can open your preset list by clicking on the "Presets" button. You can create up to 9 presets with 6 different weapons each. Your selected preset is shown by a dark blue background. This selection can be changed by simply clicking on another one. Selected items will be added to your active preset. To create a preset click on the <kbd><img src="https://raw.githubusercontent.com/TechnicPlay/KillStats/Bin/resources/add_icon_small.png" width="20px" height="20px"></kbd> symbol in the upper left corner of the list. 
 
 
