@@ -3,7 +3,10 @@ KillStats is a Team Fortress 2 tool to get additional statistics to your strange
 
 ### First Startup:
 When you start the application for the first time it will look like this:
+<kbd>
 <img src="https://i.imgur.com/i3MZYHQ.png" width="1050px" height="410px">
+</kbd>
+
 
 #### You need to add your steam profile URL... 
 * visit your steam profile page and coby the url from your searchbar
