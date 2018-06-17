@@ -1,4 +1,9 @@
 -----------Update Log-----------
+Version 0.5.0
+
+-Added the possibility to enable, that KillStats gets executed, if hl2.exe is started
+-Form launches now on second screen (if available) on default
+-Bug fixes
 
 Version 0.4.4
 
