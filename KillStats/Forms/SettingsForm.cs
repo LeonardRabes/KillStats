@@ -11,6 +11,7 @@ using System.IO;
 using IWshRuntimeLibrary;
 using Newtonsoft.Json.Linq;
 using SteamWebAPI;
+using System.Diagnostics;
 
 namespace KillStats
 {
@@ -226,6 +227,25 @@ namespace KillStats
             shortcut.IconLocation = Application.StartupPath + @"\KillStats.ico";
             shortcut.TargetPath = path;
             shortcut.Save();
+        }
+
+        private void Autorun_button_Click(object sender, EventArgs e)
+        {
+            FileStream fstream = System.IO.File.Create(Application.StartupPath + "\\config\\autorun\\ProcessListener.cfg");
+            string s = "hl2\n" + Application.ExecutablePath;
+            byte[] bytes = new UTF8Encoding(true).GetBytes(s);
+            fstream.Write(bytes, 0, bytes.Length);
+            fstream.Close();
+
+            WshShell shell = new WshShell();
+            string shortcutAddress = string.Format("C:\\Users\\{0}\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\KillStatsAutorun.lnk", Environment.UserName);
+            IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(shortcutAddress);
+            shortcut.Description = "TF2 with Stats";
+            shortcut.IconLocation = Application.StartupPath + "\\KillStats.ico";
+            shortcut.TargetPath = Application.StartupPath + "\\config\\autorun\\KillStatsAutorun.exe";
+            shortcut.WorkingDirectory = Application.StartupPath + "\\config\\autorun";
+            shortcut.Save();
+            Process.Start(shortcutAddress);
         }
     }
 }

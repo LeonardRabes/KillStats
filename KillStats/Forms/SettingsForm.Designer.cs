@@ -49,6 +49,7 @@
             this.SelectableItems_listView = new System.Windows.Forms.ListView();
             this.name_header = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.type_header = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Autorun_button = new System.Windows.Forms.Button();
             this.Settings_tabControl.SuspendLayout();
             this.settings_tabPage.SuspendLayout();
             this.selectItem_tabPage.SuspendLayout();
@@ -68,6 +69,7 @@
             // 
             // settings_tabPage
             // 
+            this.settings_tabPage.Controls.Add(this.Autorun_button);
             this.settings_tabPage.Controls.Add(this.label5);
             this.settings_tabPage.Controls.Add(this.CreateShortcut_button);
             this.settings_tabPage.Controls.Add(this.label4);
@@ -264,6 +266,16 @@
             this.type_header.Text = "Type";
             this.type_header.Width = 243;
             // 
+            // Autorun_button
+            // 
+            this.Autorun_button.Location = new System.Drawing.Point(230, 188);
+            this.Autorun_button.Name = "Autorun_button";
+            this.Autorun_button.Size = new System.Drawing.Size(141, 23);
+            this.Autorun_button.TabIndex = 11;
+            this.Autorun_button.Text = "Autorun KillStats with Tf2";
+            this.Autorun_button.UseVisualStyleBackColor = true;
+            this.Autorun_button.Click += new System.EventHandler(this.Autorun_button_Click);
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -306,5 +318,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button CreateShortcut_button;
+        private System.Windows.Forms.Button Autorun_button;
     }
 }
