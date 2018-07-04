@@ -29,7 +29,7 @@ namespace SteamWebAPI
                     weaponParts.Add(new uint[] { status = 500 });
                 }
                 JArray items = (JArray)JObject.Parse(response)["result"]["items"];
-                foreach(string weaponID in weaponIDs)
+                foreach (string weaponID in weaponIDs)
                 {
                     foreach (JObject item in items)
                     {
@@ -40,7 +40,7 @@ namespace SteamWebAPI
 
                             foreach (JObject attribute in attributes)
                             {
-                                
+
 
                                 if ((int)attribute["defindex"] == 214)
                                 {
@@ -66,15 +66,15 @@ namespace SteamWebAPI
                                 {
                                     weaponStats.Add(Convert.ToUInt32(attribute["value"]));
                                 }
-                                
+
                             }
 
                             if (weaponStats.Count > 0)
-                                    weaponParts.Add(weaponStats.ToArray());
+                                weaponParts.Add(weaponStats.ToArray());
                         }
                     }
                 }
-                
+
             }
             catch (Exception e)
             {
@@ -90,17 +90,18 @@ namespace SteamWebAPI
             {
                 string response = Json.GET(String.Format("http://steamcommunity.com/inventory/{0}/440/2?count=5000", steamID64));
                 JArray assets = (JArray)JObject.Parse(response)["assets"];
-                for(int i = 0; i < weaponIDs.Count && i < weaponParts.Count; i++)
+                for (int i = 0; i < weaponIDs.Count && i < weaponParts.Count; i++)
                 {
                     foreach (JObject asset in assets)
                     {
                         if (((string)asset["assetid"]).Contains(weaponIDs[i]))
                         {
+                            string classid = (string)asset["classid"];
                             string instanceID = (string)asset["instanceid"];
                             JArray descriptions = (JArray)JObject.Parse(response)["descriptions"];
                             foreach (JObject description in descriptions)
                             {
-                                if ((string)description["instanceid"] == instanceID)
+                                if ((string)description["classid"] == classid && (string)description["instanceid"] == instanceID)
                                 {
                                     weaponName.Add(new string[]
                                     {
@@ -138,11 +139,12 @@ namespace SteamWebAPI
                     {
                         if (((string)asset["assetid"]).Contains(weaponIDs[i]))
                         {
+                            string classid = (string)asset["classid"];
                             string instanceID = (string)asset["instanceid"];
                             JArray descriptions = (JArray)JObject.Parse(response)["descriptions"];
                             foreach (JObject description in descriptions)
                             {
-                                if ((string)description["instanceid"] == instanceID)
+                                if ((string)description["classid"] == classid && (string)description["instanceid"] == instanceID)
                                 {
                                     weaponName.Add(new string[]
                                     {
@@ -175,50 +177,56 @@ namespace SteamWebAPI
                 string response = Json.GET(String.Format("http://steamcommunity.com/inventory/{0}/440/2?count=5000", steamID64));
                 JArray descriptions = (JArray)JObject.Parse(response)["descriptions"];
                 JArray assets = (JArray)JObject.Parse(response)["assets"];
-                int count = 0;
-                foreach (JObject description in descriptions)
-                {
-                    count++;
-                    if (((string)description["tags"][0]["internal_name"]).ToLower().Contains(quality.ToLower()))
-                    {
-                        string assetID = "";
-                        foreach (JObject asset in assets)
-                        {
-                            if (((string)asset["instanceid"]).Contains((string)description["instanceid"]))
-                            {
-                                assetID = (string)asset["assetid"];
-                            }
-                        }
 
-                        List<string> parts = new List<string>();
+                for (int i = 0; i < descriptions.Count; i++)
+                {
+                    string name = "";
+                    string type = "";
+                    List<string> parts = new List<string>();
+                    string assetID = "";
+
+                    if (((string)descriptions[i]["tags"][0]["internal_name"]).ToLower().Contains(quality.ToLower()))
+                    {
+                        name = (string)descriptions[i]["name"];
+                        type = (string)descriptions[i]["type"];
+
+                        //find parts
                         try
                         {
-                            foreach(JObject part in (JArray)description["descriptions"])
+                            foreach (JObject part in (JArray)descriptions[i]["descriptions"])
                             {
-                                if((string)part["color"] == "756b5e")
+                                if ((string)part["color"] == "756b5e")
                                 {
                                     string partStr = ((string)part["value"]).Replace("(", string.Empty).Replace(")", string.Empty);
                                     parts.Add(partStr);
                                 }
                             }
                         }
-                        catch (Exception e)
+                        catch(Exception e)
                         {
-                            Console.WriteLine(e.ToString());
+                            Console.WriteLine(e.ToString()); 
                         }
 
+                        //find assetid
+                        foreach (JObject asset in assets)
+                        {
+                            if((string)descriptions[i]["classid"] == (string)asset["classid"] && (string)descriptions[i]["instanceid"] == (string)asset["instanceid"])
+                            {
+                                assetID = (string)asset["assetid"];
+                            }
+                        }
 
                         List<string> item = new List<string>()
                         {
-                            (string)description["name"],
-                            (string)description["type"],
+                            name,
+                            type
                         };
 
                         item.AddRange(parts);
                         item.Add(assetID);
                         items.Add(item.ToArray());
                     }
-                } 
+                }
             }
             catch (Exception e)
             {
